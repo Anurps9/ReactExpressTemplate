@@ -9,18 +9,18 @@ import cookie from 'react-cookies'
 
 function App() {
 
-  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
 
-  // useEffect(() => {
-  //   const userId = cookie.load('userId')
-  //   if(userId){
-  //     setUser(userId)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const userId = cookie.load('userId')
+    if(userId){
+      setUser(userId)
+    }
+  }, [])
 
   return (
     <div className="App">
-      {/* <AuthContext.Provider value={{user, setUser}}>
+      <AuthContext.Provider value={{user, setUser}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
@@ -28,7 +28,7 @@ function App() {
             <Route path='/login' element={<Login />}/>
           </Routes>
         </BrowserRouter>
-      </AuthContext.Provider> */}
+      </AuthContext.Provider>
     </div>
   );
 }
