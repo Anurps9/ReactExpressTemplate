@@ -6,9 +6,9 @@ router.use(express.json())
 
 router
 .get('/', (req, res) => {
-    User.find({}, (err, users) => {
+    User.find({}, (err, user) => {
         catchError(err, res)
-        res.status(200).json(users)
+        res.status(200).json(user)
     })
 })
 .get('/:id', (req, res) => {
