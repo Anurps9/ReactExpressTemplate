@@ -3,24 +3,24 @@ import Signup from "./Components/Signup";
 import Home from "./Components/Home";
 import { AuthContext } from "./Context/AuthContext";
 import { useEffect, useState } from "react";
-import RequireAuth from "./Context/RequireAuth";
+import RequireAuth from "./Components/RequireAuth";
 import Login from "./Components/Login";
 import cookie from 'react-cookies'
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  useEffect(() => {
-    const userId = cookie.load('userId')
-    if(userId){
-      setUser(userId)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const userId = cookie.load('userId')
+  //   if(userId){
+  //     setUser(userId)
+  //   }
+  // }, [])
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{user, setUser}}>
+      {/* <AuthContext.Provider value={{user, setUser}}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
@@ -28,7 +28,7 @@ function App() {
             <Route path='/login' element={<Login />}/>
           </Routes>
         </BrowserRouter>
-      </AuthContext.Provider>
+      </AuthContext.Provider> */}
     </div>
   );
 }
