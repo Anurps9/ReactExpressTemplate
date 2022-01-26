@@ -49,6 +49,7 @@ router
         catchError(err, res)
         if(!user){
             res.status(200).json(null)
+            return;
         }
         user.updateOne(req.body, (err, result) => {
             catchError(err, res)
