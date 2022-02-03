@@ -1,11 +1,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Signup from "./Components/Signup";
-import Home from "./Components/Home";
 import { AuthContext } from "./Context/AuthContext";
 import { useEffect, useState } from "react";
-import RequireAuth from "./Components/RequireAuth";
-import Login from "./Components/Login";
 import cookie from 'react-cookies'
+import { routes } from "./routes";
 
 function App() {
 
@@ -23,9 +20,11 @@ function App() {
       <AuthContext.Provider value={{user, setUser}}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
-            <Route path='/signup' element={<Signup/>}/>
-            <Route path='/login' element={<Login />}/>
+            {
+              routes.map((route) => (
+                <Route path={route.path} element={route.element} />
+              ))
+            }
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>
